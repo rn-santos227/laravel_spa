@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,15 @@ use Illuminate\Http\Request;
 |
 */
 
+//http://127.0.0.1:8000/api/user
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//http://127.0.0.1:8000/api/test
+Route::get('/test', function (Request $request) {
+    return response()->json([
+      'test' => 'test'  
+    ]);
+});
+
